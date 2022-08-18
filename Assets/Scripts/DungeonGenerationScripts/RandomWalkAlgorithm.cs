@@ -20,7 +20,7 @@ public static class RandomWalkAlgorithm
 
         for (int i = 0; i < walkLength; i++)
         {
-            Vector2Int newPos = previousPos + GetRandomCardinalDirection();
+            Vector2Int newPos = previousPos + Direction2D.GetRandomCardinalDirection();
             path.Add(newPos);
             previousPos = newPos;
         }
@@ -28,22 +28,5 @@ public static class RandomWalkAlgorithm
         return path;
     }
 
-    private static Vector2Int GetRandomCardinalDirection()
-    {
-        // Can alter the probability of the walk direction with the case statements
-        // E.g. Case int n when (n => 0 && n < 4)
-        switch (Random.Range(0, 4))
-        {
-            case 0:
-                return Vector2Int.down;
-            case 1:
-                return Vector2Int.left;
-            case 2:
-                return Vector2Int.right;
-            case 3:
-                return Vector2Int.up;
-            default: // Theoretically shouldn't be possible
-                return Vector2Int.down;
-        }
-    }
+    
 }

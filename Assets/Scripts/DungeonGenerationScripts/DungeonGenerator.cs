@@ -10,9 +10,12 @@ using UnityEngine;
 
 public class DungeonGenerator : AbstractDungeonGenerator
 {
-    [SerializeField] private int iterations = 10;
-    [SerializeField] public int walkLength = 10;
-    [SerializeField] public bool startRandomlyEachIteration = true;
+    // Cover below first before moving onto the scriptable objects
+    // [SerializeField] private int iterations = 10;
+    // [SerializeField] public int walkLength = 10;
+    // [SerializeField] public bool startRandomlyEachIteration = true;
+
+    [SerializeField] private RandomWalkSO randomWalkParameters;
 
     protected override void RunGenerator()
     {
@@ -21,6 +24,8 @@ public class DungeonGenerator : AbstractDungeonGenerator
         // Functions are accessible because it is public
         tileSpawner.Clear();
         tileSpawner.PaintFloorTiles(floorPositions);
+        
+        WallGenerator.CreateWalls(floorPositions, tileSpawner);
     }
 
     // Will return a series of positions where floor tiles are to spawn
@@ -32,15 +37,15 @@ public class DungeonGenerator : AbstractDungeonGenerator
         // Loop over every iteration. Multiple iterations will result in less spaghetti-like generation
         // since the multiple paths will overlap with each other.
         // A board demonstration might be useful for this
-        for (int i = 0; i < iterations; i++)
+        for (int i = 0; i < randomWalkParameters.iterations; i++)
         {
-            HashSet<Vector2Int> path = RandomWalkAlgorithm.SimpleRandomWalk(currentPos, walkLength);
+            HashSet<Vector2Int> path = RandomWalkAlgorithm.SimpleRandomWalk(currentPos, randomWalkParameters.walkLength);
             
             // Adds to the list but does not worry about duplicates
             // The beauty of Dictionaries/Hashmaps
             floorPos.UnionWith(path);
             
-            if (startRandomlyEachIteration)
+            if (randomWalkParameters.startRandomlyEachIteration)
                 currentPos = floorPos.ElementAt(Random.Range(0, floorPos.Count)); // Linq required for method
         }
 
