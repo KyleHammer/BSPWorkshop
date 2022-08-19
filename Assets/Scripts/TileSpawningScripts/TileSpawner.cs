@@ -24,9 +24,9 @@ public class TileSpawner : MonoBehaviour
 
     // Think of IEnumerable is the var of lists
     // You can replace with HashSet<> if you wish
-    public void PaintFloorTiles(IEnumerable<Vector2Int> floorPos)
+    public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
-        PaintTiles(floorPos, floorTilemap);
+        PaintTiles(floorPositions, floorTilemap);
     }
 
     // Keeping these painting functions separated (i.e. PaintTiles, PaintSingleTile)
@@ -121,15 +121,7 @@ public class TileSpawner : MonoBehaviour
     // Tile base is the term used for an individual tile object
     private TileBase GetRandomFloorTile()
     {
-        int i = 0;
-        
-        float randomNumber = Random.Range(0f, 100f);
-        float basicTileChance = 95f;
-        
-        if(randomNumber > basicTileChance)
-            i = Random.Range(1, floorTiles.Count);
-
-        return floorTiles[i];
+        return floorTiles[Random.Range(0, floorTiles.Count)];
     }
 
     public void Clear()
