@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// TILE SPAWNER SCRIPT
 /// GETS CO-ORDINATES AND SPAWNS TILES AT THOSE CO-ORDINATES
+/// CUSTOM CLASS, PROVIDED FOR YOU
 /// </summary>
 
 public class TileSpawner : MonoBehaviour

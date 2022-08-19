@@ -1,15 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// WALL SPAWNER SCRIPT
+/// CONTAINS LOGIC TO KNOW WHERE TO SPAWN WALLS
+/// CUSTOM CLASS, PROVIDED FOR YOU
+/// </summary>
+
 public static class WallGenerator
 {
-    /// <summary>
-    /// WALL SPAWNER SCRIPT
-    /// CONTAINS LOGIC TO KNOW WHERE TO SPAWN WALLS
-    /// TOO COMPLEX TO COVER FOR THE TUTORIAL
-    /// </summary>
-
     public static void CreateWalls(HashSet<Vector2Int> floorPositions, TileSpawner tilemapVisualizer)
     {
         var basicWallPositions = FindWallsInDirections(floorPositions, Direction2D.cardinalDirectionsList);

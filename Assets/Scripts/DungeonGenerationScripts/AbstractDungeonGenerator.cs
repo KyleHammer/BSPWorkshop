@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// PARENT OF THE DUNGEON-GENERATOR
+/// PARENT OF THE RANDOM WALK GENERATOR
 /// INHERITS ATTRIBUTES FROM HERE
+/// CUSTOM CLASS, PROVIDED FOR YOU
 /// </summary>
 
 public abstract class AbstractDungeonGenerator : MonoBehaviour

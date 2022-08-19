@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 /// <summary>
 /// UTILITY WALL CLASS SCRIPT TO SUPPORT WALL GENERATION
-/// TOO COMPLEX TO COVER FOR THE TUTORIAL
+/// CUSTOM CLASS, PROVIDED FOR YOU
 /// </summary>
 
 public static class WallTypesHelper
